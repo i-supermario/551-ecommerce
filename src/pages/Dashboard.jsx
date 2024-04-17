@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Medicine from "../components/Medicine";
 import CartItem from "../components/CartItem";
 import { useCart } from "../contexts/CartContext";
+import { useUser } from "../contexts/UserContext";
 
 
 
@@ -11,6 +12,8 @@ export default function Dashboard(){
 
     const [products,setProducts] = useState([])
     const {cart}  = useCart()
+    const { user } = useUser()
+    console.log(user)
 
     const total = cart.reduce((acc, curr) => acc + (curr.count*curr.price), 0)
     console.log(total)
